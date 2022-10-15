@@ -9,6 +9,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -51,5 +53,20 @@ public class ApplicationContextSameBeanFindTest {
         MemberRepository bean = ac.getBean("memberRepository1",MemberRepository.class);
         assertThat(bean).isInstanceOf(MemberRepository.class);
     }
+
+    @Test
+    @DisplayName("같은 타입이 둘 이상 있을 경우 모두 조회")
+    void findBeanByAll() {
+        //Commend + Shift + enter : 바로 넘어가기
+
+        Map<String, MemberRepository> beansOfType = ac.getBeansOfType(MemberRepository.class);
+
+        for (String key : beansOfType.keySet()) {
+            System.out.println("key = " + key + "\nValue = " + beansOfType.get(key));
+        }
+        System.out.println(beansOfType);
+        assertThat(beansOfType.size()).isEqualTo(2);
+    }
+
 
 }
