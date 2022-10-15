@@ -68,6 +68,13 @@ public class ApplicationContextSameBeanFindTest {
         assertThat(beansOfType.size()).isEqualTo(2);
     }
 
-
-
+    
+    @Test
+    @DisplayName("object타입 조회")
+    void selectObject(){
+        Map<String, Object> beansOfType = ac.getBeansOfType(Object.class);
+        for (String key:beansOfType.keySet()){
+            System.out.println("key = " + key + "\nValue = "+beansOfType.get(key));
+        }
+    }
 }
