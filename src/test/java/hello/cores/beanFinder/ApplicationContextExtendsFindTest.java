@@ -10,13 +10,14 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Map;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ApplicationContextExtendsFindTest {
 
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(TestConfig.class);
-    private Object assertThat;
 
     @Configuration
     static class TestConfig {
@@ -50,5 +51,13 @@ public class ApplicationContextExtendsFindTest {
         assertThat(dp).isInstanceOf(RateDiscountPolicy.class);
     }
 
+    @Test
+    @DisplayName("object타입 조회")
+    void selectObject(){
+        Map<String, Object> beansOfType = ac.getBeansOfType(Object.class);
+        for (String key:beansOfType.keySet()){
+            System.out.println("key = " + key + "\nValue = "+beansOfType.get(key));
+        }
+    }
 
 }
