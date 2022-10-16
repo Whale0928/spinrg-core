@@ -40,23 +40,23 @@ public class ApplicationContextExtendsFindTest {
     void findBeanByParentTypeDuplicate() {
 //        DiscountPolicy dp = ac.getBean(DiscountPolicy.class);
 
-        assertThrows(NoUniqueBeanDefinitionException.class,()->ac.getBean(DiscountPolicy.class));
+        assertThrows(NoUniqueBeanDefinitionException.class, () -> ac.getBean(DiscountPolicy.class));
 
     }
 
     @Test
     @DisplayName("자식이 둘 이상일 경우 빈 이름을 지정")
     void findBeanByParentTypeName() {
-        DiscountPolicy dp = ac.getBean("rateDiscountPolicy",DiscountPolicy.class);
+        DiscountPolicy dp = ac.getBean("rateDiscountPolicy", DiscountPolicy.class);
         assertThat(dp).isInstanceOf(RateDiscountPolicy.class);
     }
 
     @Test
     @DisplayName("object타입 조회")
-    void selectObject(){
+    void selectObject() {
         Map<String, Object> beansOfType = ac.getBeansOfType(Object.class);
-        for (String key:beansOfType.keySet()){
-            System.out.println("key = " + key + "\nValue = "+beansOfType.get(key));
+        for (String key : beansOfType.keySet()) {
+            System.out.println("key = " + key + "\nValue = " + beansOfType.get(key));
         }
     }
 
