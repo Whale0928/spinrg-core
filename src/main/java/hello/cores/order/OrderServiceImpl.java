@@ -20,4 +20,9 @@ public class OrderServiceImpl implements OrderService {
         int discountPrice = discountPolicy.dscount(member,itemPrice); // 가격 할인 정보 조회하고.
         return new Order(memberId,itemName,itemPrice,discountPrice); // 주문 정보를 반환
     }
+
+    //테스트용
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
+    }
 }
