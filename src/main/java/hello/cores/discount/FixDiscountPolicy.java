@@ -3,6 +3,7 @@ package hello.cores.discount;
 import hello.cores.member.Gradle;
 import hello.cores.member.Member;
 
+
 public class FixDiscountPolicy implements DiscountPolicy{
 
     private int discountFixAmount = 1000; //1000원 정액 할인
