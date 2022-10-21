@@ -19,7 +19,7 @@ class RateDiscountPolicyTest {
         //given
         Member vip = new Member(1L, "VIP", Gradle.VIP);
         //when
-        int discount = discountPolicy.dscount(vip, 10000);
+        int discount = discountPolicy.discount(vip, 10000);
         //then
         assertThat(discount).isEqualTo(1000);
     }
@@ -30,7 +30,7 @@ class RateDiscountPolicyTest {
         //given
         Member basic = new Member(1L, "VIP", Gradle.BASIC);
         //when
-        int discount = discountPolicy.dscount(basic, 10000);
+        int discount = discountPolicy.discount(basic, 10000);
         //then
         assertThat(discount).isEqualTo(0);
     }

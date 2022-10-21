@@ -20,11 +20,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         Member member = memberRepository.findById(memberId); //회원 정보 조회하고
-        int discountPrice = discountPolicy.dscount(member,itemPrice); // 가격 할인 정보 조회하고.
+        int discountPrice = discountPolicy.discount(member,itemPrice); // 가격 할인 정보 조회하고.
         return new Order(memberId,itemName,itemPrice,discountPrice); // 주문 정보를 반환
     }
 
-    //테스트용
+    //테스트용‰
     public MemberRepository getMemberRepository(){
         return memberRepository;
     }
