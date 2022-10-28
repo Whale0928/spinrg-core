@@ -1,15 +1,15 @@
 package hello.cores.member;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MemberServiceImpl implements MemberService{
 
+
     private final MemberRepository memberRepository;
     // ' 세미 콜론 까지 자동 완성 커맨드 + 쉬프트 엔터'
 
-    @Autowired
+
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -25,7 +25,7 @@ public class MemberServiceImpl implements MemberService{
     }
 
     //테스트용
-    public MemberRepository getMemberRepository(){
+   /* public MemberRepository getMemberRepository(){
         return memberRepository;
-    }
+    }*/
 }

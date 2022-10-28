@@ -1,14 +1,11 @@
 package hello.cores.member;
 
-import org.springframework.stereotype.Component;
-
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
 public class MemoryMemberRepository implements MemberRepository{
 
-    private static Map<Long,Member> store  = new HashMap<>();
+    private static final Map<Long,Member> store  = new HashMap<>();
     //HashMap == 동시성 여부 발생 가능성 높음
 
     @Override //회원 저장을 위한 메서드
